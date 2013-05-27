@@ -70,11 +70,22 @@ function handle_buildpack() {
       return 0 # Found a framework. No need to search more
     fi
   fi
+
+  return 1
 }
+
+should_install_takipi="0"
 
 for BUILDPACK in $BUILDPACKS; do
   handle_buildpack $1 $2 $BUILDPACK
-  [ $? == 0 ] && break
+  if [ $? == 0 ]; then
+    should_install_takipi="1"
+    break
 done
 
-handle_buildpack $1 $2 $TAKIPI_BUILDPACK
+if [ $should_install_takipi == "0"]; then
+  echo "No JVM buildpack was installed. Aborting."
+  exit 1
+else
+  handle_buildpack $1 $2 $TAKIPI_BUILDPACK
+fi
