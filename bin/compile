@@ -23,6 +23,8 @@ unset GIT_DIR
 function handle_buildpack() {
   BUILDPACK=$1
 
+  echo "About to try $BUILDPACK"
+
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
@@ -64,8 +66,7 @@ function handle_buildpack() {
         $dir/bin/release $1 > $1/last_pack_release.out
       fi
 
-      return 0
-      break # Found a framework. No need to search more
+      return 0 # Found a framework. No need to search more
     fi
   fi
 }
