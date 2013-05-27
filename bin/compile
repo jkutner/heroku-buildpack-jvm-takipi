@@ -44,7 +44,7 @@ function handle_buildpack() {
       git clone $url $dir #>/dev/null 2>&1
     fi
     cd $dir
-
+    echo "Got here?"
     if [ "$branch" != "" ]; then
       git checkout $branch #>/dev/null 2>&1
     fi
