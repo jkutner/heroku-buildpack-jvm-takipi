@@ -2,13 +2,13 @@
 
 set -e
 
-BUILDPACKS="https://github.com/heroku/heroku-buildpack-java 
-https://github.com/heroku/heroku-buildpack-gradle 
-https://github.com/heroku/heroku-buildpack-grails 
-https://github.com/heroku/heroku-buildpack-scala 
-https://github.com/heroku/heroku-buildpack-play"
+BUILDPACKS="https://github.com/heroku/heroku-buildpack-java.git
+https://github.com/heroku/heroku-buildpack-gradle.git
+https://github.com/heroku/heroku-buildpack-grails.git 
+https://github.com/heroku/heroku-buildpack-scala.git 
+https://github.com/heroku/heroku-buildpack-play.git"
 
-TAKIPI_BUILDPACK="https://github.com/takipi/heroku-buildpack-takipi"
+TAKIPI_BUILDPACK="https://github.com/takipi/heroku-buildpack-takipi.git"
 
 function indent() {
   c='s/^/       /'
@@ -22,8 +22,6 @@ unset GIT_DIR
 
 function handle_buildpack() {
   BUILDPACK=$1
-
-  echo "About to try $BUILDPACK"
 
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
