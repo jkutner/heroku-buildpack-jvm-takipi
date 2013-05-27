@@ -69,8 +69,11 @@ function handle_buildpack() {
 
       return 0 # Found a framework. No need to search more
     fi
-  fi
 
+    echo 'before end fi'
+  fi
+  echo 'before return 1'
+  set +e
   return 1
 }
 
@@ -81,7 +84,7 @@ for BUILDPACK in $BUILDPACKS; do
   handle_buildpack $1 $2 $BUILDPACK
   exit_code=$?
   set -e
-  
+
   if [ $exit_code == 0 ]; then
     should_install_takipi="1"
     break
