@@ -81,6 +81,7 @@ for BUILDPACK in $BUILDPACKS; do
   if [ $? == 0 ]; then
     should_install_takipi="1"
     break
+  fi
 done
 
 if [ $should_install_takipi == "0"]; then
