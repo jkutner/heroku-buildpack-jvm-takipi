@@ -77,8 +77,12 @@ function handle_buildpack() {
 should_install_takipi="0"
 
 for BUILDPACK in $BUILDPACKS; do
+  set +e
   handle_buildpack $1 $2 $BUILDPACK
-  if [ $? == 0 ]; then
+  exit_code=$?
+  set -e
+  
+  if [ $exit_code == 0 ]; then
     should_install_takipi="1"
     break
   else
