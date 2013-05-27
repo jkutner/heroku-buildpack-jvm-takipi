@@ -21,7 +21,7 @@ function indent() {
 unset GIT_DIR
 
 function handle_buildpack() {
-  BUILDPACK=$1
+  BUILDPACK=$3
 
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
@@ -78,8 +78,8 @@ function handle_buildpack() {
 }
 
 for BUILDPACK in $BUILDPACKS; do
-  handle_buildpack $BUILDPACK
+  handle_buildpack $1 $2 $BUILDPACK
   [ $? == 0 ] && break
 done
 
-handle_buildpack $TAKIPI_BUILDPACK
+handle_buildpack $1 $2 $TAKIPI_BUILDPACK
