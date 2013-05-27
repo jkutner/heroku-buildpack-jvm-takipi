@@ -53,6 +53,8 @@ function handle_buildpack() {
 
     if [ ! -f $dir/bin/detect ]; then
       echo "File $dir/bin/detect does not exist!"
+    else
+      cat $dir/bin/detect
     fi
 
     echo "Before detect"
