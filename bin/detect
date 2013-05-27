@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-echo "Multipack"
+echo "JVM app with Takipi"
 exit 0
