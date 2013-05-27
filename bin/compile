@@ -2,11 +2,11 @@
 
 set -e
 
-BUILDPACKS="https://github.com/heroku/heroku-buildpack-java.git
-https://github.com/heroku/heroku-buildpack-gradle.git
-https://github.com/heroku/heroku-buildpack-grails.git 
-https://github.com/heroku/heroku-buildpack-scala.git 
-https://github.com/heroku/heroku-buildpack-play.git"
+BUILDPACKS="https://github.com/heroku/heroku-buildpack-scala.git 
+https://github.com/heroku/heroku-buildpack-java.git 
+https://github.com/heroku/heroku-buildpack-play.git 
+https://github.com/heroku/heroku-buildpack-gradle.git 
+https://github.com/heroku/heroku-buildpack-grails.git"
 
 TAKIPI_BUILDPACK="https://github.com/takipi/heroku-buildpack-takipi.git"
 
@@ -40,26 +40,18 @@ function handle_buildpack() {
       mkdir -p "$dir"
       curl -s "$url" | tar xvz -C "$dir" #>/dev/null 2>&1
     else
-      echo "About to clone $url to $dir"
       git clone $url $dir #>/dev/null 2>&1
     fi
     cd $dir
-    echo "Got here?"
+    
     if [ "$branch" != "" ]; then
       git checkout $branch #>/dev/null 2>&1
     fi
 
     chmod +x $dir/bin/{detect,compile,release}
 
-    if [ ! -f $dir/bin/detect ]; then
-      echo "File $dir/bin/detect does not exist!"
-    else
-      cat $dir/bin/detect
-    fi
-
-    echo "Before detect"
     framework=$($dir/bin/detect $1)
-    echo "After detect $framework"
+
     if [ $? == 0 ]; then
       echo "=====> Detected Framework: $framework"
       $dir/bin/compile $1 $2
