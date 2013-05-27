@@ -22,7 +22,7 @@ unset GIT_DIR
 
 function handle_buildpack() {
   BUILDPACK=$3
-  echo "handle_buildpack $BUILDPACK"
+  
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
@@ -42,6 +42,7 @@ function handle_buildpack() {
     else
       git clone $url $dir >/dev/null 2>&1
     fi
+
     cd $dir
     
     if [ "$branch" != "" ]; then
@@ -54,7 +55,7 @@ function handle_buildpack() {
     framework=$($dir/bin/detect $1)
     exit_code=$?
     set -e
-    echo "After detect for $framework code $exit_code"
+    
     if [ $exit_code == 0 ]; then
       echo "=====> Detected Framework: $framework"
       $dir/bin/compile $1 $2
@@ -69,10 +70,8 @@ function handle_buildpack() {
 
       return 0 # Found a framework. No need to search more
     fi
-
-    echo 'before end fi'
   fi
-  echo 'before return 1'
+  
   set +e
   return 1
 }
@@ -88,13 +87,11 @@ for BUILDPACK in $BUILDPACKS; do
   if [ $exit_code == 0 ]; then
     should_install_takipi="1"
     break
-  else
-    echo "NEXT"
   fi
 done
 
-if [ $should_install_takipi == "0"]; then
-  echo "No JVM buildpack was installed. Aborting."
+if [ $should_install_takipi == "0" ]; then
+  echo " !     No JVM buildpack was installed. Aborting."
   exit 1
 else
   handle_buildpack $1 $2 $TAKIPI_BUILDPACK
