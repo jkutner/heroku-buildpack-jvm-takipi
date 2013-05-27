@@ -38,14 +38,14 @@ function handle_buildpack() {
 
     if [[ "$url" =~ \.tgz$ ]]; then
       mkdir -p "$dir"
-      curl -s "$url" | tar xvz -C "$dir" >/dev/null 2>&1
+      curl -s "$url" | tar xvz -C "$dir" #>/dev/null 2>&1
     else
-      git clone $url $dir >/dev/null 2>&1
+      git clone $url $dir #>/dev/null 2>&1
     fi
     cd $dir
 
     if [ "$branch" != "" ]; then
-      git checkout $branch >/dev/null 2>&1
+      git checkout $branch #>/dev/null 2>&1
     fi
 
     chmod +x $dir/bin/{detect,compile,release}
