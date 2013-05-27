@@ -40,6 +40,7 @@ function handle_buildpack() {
       mkdir -p "$dir"
       curl -s "$url" | tar xvz -C "$dir" #>/dev/null 2>&1
     else
+      echo "About to clone $url to $dir"
       git clone $url $dir #>/dev/null 2>&1
     fi
     cd $dir
