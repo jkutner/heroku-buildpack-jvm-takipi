@@ -22,7 +22,7 @@ unset GIT_DIR
 
 function handle_buildpack() {
   BUILDPACK=$3
-
+  echo "handle_buildpack $BUILDPACK"
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
