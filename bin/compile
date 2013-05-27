@@ -50,7 +50,9 @@ for BUILDPACK in $(cat $1/.buildpacks); do
         exit 1
       fi
 
-      $dir/bin/release $1 > $1/last_pack_release.out
+      if [ ! -f $1/last_pack_release.out ]; then
+        $dir/bin/release $1 > $1/last_pack_release.out
+      fi
     fi
   fi
 done
