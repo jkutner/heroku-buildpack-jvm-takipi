@@ -2,6 +2,14 @@
 
 set -e
 
+BUILDPACKS="https://github.com/heroku/heroku-buildpack-java 
+https://github.com/heroku/heroku-buildpack-gradle 
+https://github.com/heroku/heroku-buildpack-grails 
+https://github.com/heroku/heroku-buildpack-scala 
+https://github.com/heroku/heroku-buildpack-play"
+
+TAKIPI_BUILDPACK="https://github.com/takipi/heroku-buildpack-takipi"
+
 function indent() {
   c='s/^/       /'
   case $(uname) in
@@ -12,7 +20,9 @@ function indent() {
 
 unset GIT_DIR
 
-for BUILDPACK in $(cat $1/.buildpacks); do
+function handle_buildpack() {
+  BUILDPACK=$1
+
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
@@ -53,9 +63,16 @@ for BUILDPACK in $(cat $1/.buildpacks); do
       if [ ! -f $1/last_pack_release.out ]; then
         $dir/bin/release $1 > $1/last_pack_release.out
       fi
+
+      return 0
+      break # Found a framework. No need to search more
     fi
   fi
+}
+
+for BUILDPACK in $BUILDPACKS; do
+  handle_buildpack $BUILDPACK
+  [ $? == 0 ] && break
 done
 
-echo "Using release configuration from last framework $framework:" | indent
-cat $1/last_pack_release.out | indent
+handle_buildpack $TAKIPI_BUILDPACK
