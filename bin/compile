@@ -51,6 +51,10 @@ function handle_buildpack() {
 
     chmod +x $dir/bin/{detect,compile,release}
 
+    if [ ! -f $dir/bin/detect ]; then
+      echo "File $dir/bin/detect does not exist!"
+    fi
+
     echo "Before detect"
     framework=$($dir/bin/detect $1)
     echo "After detect $framework"
