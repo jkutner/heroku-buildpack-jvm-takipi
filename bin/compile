@@ -54,7 +54,7 @@ function handle_buildpack() {
     framework=$($dir/bin/detect $1)
     exit_code=$?
     set -e
-    
+    echo "After detect for $framework code $exit_code"
     if [ $exit_code == 0 ]; then
       echo "=====> Detected Framework: $framework"
       $dir/bin/compile $1 $2
