@@ -20,9 +20,7 @@ Or for a running app run:
 
 ### Setup Takipi
 
-Once your app is configured to run Takipi, either add [Takipi addon](https://addons.heroku.com/takipi)
-
-Or setup Takipi manually:
+Once your app is configured to run Takipi, either add [Takipi addon](https://addons.heroku.com/takipi) or setup Takipi manually:
 
 1. Create an account at https://app.takipi.com/account.html
 2. Run `heroku config:set TAKIPI_SECRET_KEY=S193#...` with the key received in step 1.
