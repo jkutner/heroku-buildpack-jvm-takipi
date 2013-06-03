@@ -2,7 +2,7 @@
 
 ### Table of Contents
 - [Introduction](#introduction)
-- [Supported languages & frameworks](supported-languages--frameworks)
+- [Supported languages & frameworks](#supported-languages--frameworks)
 - [Install](#install)
 - [Use](#use)
 
