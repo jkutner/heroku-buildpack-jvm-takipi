@@ -25,7 +25,6 @@ We support OpenJDK and HotSpot versions 6 and 7 (64bit only).
 We support all JVM languages. Java, Scala, Clojure, JRuby, etc...
 
 #### Install
-
 Installing Takipi is super easy!
 
 You will need to setup the [Heroku Takipi Buildpack](https://github.com/takipi/heroku-buildpack-jvm-takipi) in your app.
@@ -41,7 +40,6 @@ Or for a running app run:
 `heroku config:set BUILDPACK_URL=https://github.com/takipi/heroku-buildpack-jvm-takipi.git`
 
 #### Use
-
 Follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
 
 
