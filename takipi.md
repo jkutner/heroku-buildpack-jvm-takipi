@@ -8,7 +8,8 @@
 
 #### Introduction
 
-Takipi - Server debugging made easy
+[Takipi](http://www.takipi.com) can be installed as an Heroku [Add-On](http://addons.heroku.com/takipi).
+Takipi is
 
 #### Supported languages & frameworks
 We support OpenJDK and HotSpot versions 6 and 7 (64bit only).
