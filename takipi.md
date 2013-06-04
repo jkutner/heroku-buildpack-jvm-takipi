@@ -40,7 +40,13 @@ Or for a running app run:
 `heroku config:set BUILDPACK_URL=https://github.com/takipi/heroku-buildpack-jvm-takipi.git`
 
 #### Use
-Follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
+
+In order to view your data, you will need to supply your installation secret key when you log into the application.
+In case you don't have your key for some reason, you can retrieve it by running 
+`heroku config` and copy the value of TAKIPI_MACHINE_KEY. 
+Note: This key is used to encrypt data sent from your servers. Takipi doesn't save it and can't decrpyt your information without it. Keep it safe.
+
+For further information about Takipi, follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
 
 
 By [Takipi, Inc.](http://www.takipi.com) 2013. Contact us: hello@takipi.com
