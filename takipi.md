@@ -1,5 +1,7 @@
 # Takipi
 
+Once Takipi Add-On will be in public beta, this documentation will move to https://devcenter.heroku.com/articles/takipi
+
 ### Table of Contents
 - [Introduction](#introduction)
 - [Supported languages & frameworks](#supported-languages--frameworks)
