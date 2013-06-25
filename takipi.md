@@ -19,8 +19,6 @@ Log in throguh the add-on Single Sign On or [create an account](https://app.taki
 Once logged-in you will need to specify the installation unique key, used to encrypt your data.
 The key is sent to the owner of the app when installing / downloaded when creating an account in Takipi website.
 
-If you are an existing Takipi user, you can use `heroku config:set TAKIPI_MACHINE_KEY=S1...` to reuse your key.
-
 #### Supported languages & frameworks
 We support OpenJDK and HotSpot versions 6 and 7 (64bit only).
 
@@ -43,10 +41,8 @@ Or for a running app run:
 
 #### Use
 
-In order to view your data, you will need to supply your installation secret key when you log into the application.  
-In case you don't have your key for some reason, you can retrieve it by running  
-`heroku config` and copy the value of `TAKIPI_MACHINE_KEY`.  
-Note: This key is used to encrypt data sent from your servers. Takipi doesn't save it and can't decrpyt your information without it. Keep it safe.
+Once you single sign on to Takipi webapp - you will be required to enter your top packages.
+You top packages are needed for Takipi to kick in and do it's magic.
 
 For further information about Takipi, follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
 
