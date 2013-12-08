@@ -41,10 +41,7 @@ Or for a running app run:
 
 #### Use
 
-Once you single sign on to Takipi webapp - you will be required to enter your top packages.
-You top packages are needed for Takipi to kick in and do it's magic.
-
-For further information about Takipi, follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
+For information about using Takipi, follow our [getting started guide](http://www.takipi.com/starting.html?nav=guide).
 
 
 By [Takipi, Inc.](http://www.takipi.com) 2013. Contact us: hello@takipi.com
