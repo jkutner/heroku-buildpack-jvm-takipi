@@ -16,7 +16,7 @@ For a new app run:
 
 Or for a running app run:
 
-`heroku config:set BUILDPACK_URL=https://github.com/takipi/heroku-buildpack-jvm-takipi.git`
+`heroku buildpacks:set https://github.com/takipi/heroku-buildpack-jvm-takipi.git`
 
 ### Setup Takipi
 
